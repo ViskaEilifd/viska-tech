@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Small Biz Web Solutions - Services</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Small Biz Web</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="services">
+            <h1>Our Services</h1>
+            <div class="service-options">
+                <div class="service-card">
+                    <h2>Basic Package - $500</h2>
+                    <p>5-page responsive website, contact form, SEO basics.</p>
+                </div>
+                <div class="service-card">
+                    <h2>Standard Package - $750</h2>
+                    <p>Includes Basic + e-commerce or CMS integration.</p>
+                </div>
+                <div class="service-card">
+                    <h2>Premium Package - $1000</h2>
+                    <p>Custom features, monthly maintenance included.</p>
+                </div>
+            </div>
+            
+            <form id="order-form">
+                <h2>Order Now</h2>
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                <label for="package">Select Package:</label>
+                <select id="package" required>
+                    <option value="">Choose a package</option>
+                    <option value="basic">Basic ($500)</option>
+                    <option value="standard">Standard ($750)</option>
+                    <option value="premium">Premium ($1000)</option>
+                </select>
+                <label for="details">Business Details:</label>
+                <textarea id="details" rows="4"></textarea>
+                <button type="submit">Submit Order</button>
+            </form>
+            <p id="order-message"></p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Small Biz Web Solutions</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
