@@ -30,7 +30,17 @@ document.getElementById('contact-form')?.addEventListener('submit', function (e)
         return;
     }
 
-    // Dummy submission feedback
-    document.getElementById('contact-message').textContent = `Thank you, ${name}! Your message has been sent.`;
-    this.reset();
+    // Submit to Netlify (form submits automatically due to method="POST")
+    fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(this)).toString()
+    })
+    .then(() => {
+        document.getElementById('contact-message').textContent = `Thank you, ${name}! Your message has been sent.`;
+        this.reset();
+    })
+    .catch(() => {
+        document.getElementById('contact-message').textContent = 'Error sending message. Please try again.';
+    });
 });
