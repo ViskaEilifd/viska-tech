@@ -27,15 +27,24 @@
                 <p hidden>
                     <label>Don’t fill this out: <input name="bot-field"></label>
                 </p>
-                <label for="contact-name">Name:</label>
-                <input type="text" id="contact-name" name="name" required>
-                <label for="contact-email">Email:</label>
-                <input type="email" id="contact-email" name="email" required>
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-                <button type="submit">Send Message</button>
+                <div class="form-group">
+                    <label for="contact-name">Name:</label>
+                    <input type="text" id="contact-name" name="name" required aria-describedby="name-error">
+                    <span id="name-error" class="error" role="alert"></span>
+                </div>
+                <div class="form-group">
+                    <label for="contact-email">Email:</label>
+                    <input type="email" id="contact-email" name="email" required aria-describedby="email-error">
+                    <span id="email-error" class="error" role="alert"></span>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required aria-describedby="message-error"></textarea>
+                    <span id="message-error" class="error" role="alert"></span>
+                </div>
+                <button type="submit" disabled>Send Message</button>
             </form>
-            <p id="contact-message"></p>
+            <p id="contact-message" role="status"></p>
         </section>
     </main>
     <footer>

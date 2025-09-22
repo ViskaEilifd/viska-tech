@@ -115,9 +115,9 @@ form {
     margin: 5rem;
     max-width: 500px;
     margin: 0 auto;
-    display: flex;
+    display: flex 1 0;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 1rem;
 }
 
@@ -195,4 +195,32 @@ footer {
     .service-card {
         max-width: 100%;
     }
+}
+
+/*Contact Form Errors*/
+.form-group {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.error {
+    color: #d32f2f;
+    font-size: 0.9rem;
+    display: block;
+    min-height: 1.2rem; /* Reserve space to prevent layout shift */
+    margin-left: 1.0rem;
+}
+
+.has-error {
+    border-color: #d32f2f !important; /* Red border when error detected */
+}
+
+button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+button:enabled {
+    background: #3498db;
+    cursor: pointer;
 }
