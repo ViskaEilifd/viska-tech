@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Small Biz Web Solutions - Services</title>
+    <title>ViskaTech - Services</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">Small Biz Web</div>
+            <div class="logo">ViskaTech Solutions</div>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="services.html" class="active">Services</a></li>
@@ -20,18 +20,37 @@
     <main>
         <section class="services">
             <h1>Our Services</h1>
+            <p>We provide services for making affordable websites for small businesses and entrepeneurs.</p>
+            <p>Already have a website? No problem, we do maintenance too!</p>
             <div class="service-options">
+                <h2>New Website</h2>
                 <div class="service-card">
                     <h2>Basic Package - $500</h2>
-                    <p>5-page responsive website, contact form, SEO basics.</p>
+                    <p>5-page responsive website, 5 products or services, contact form, SEO basics.</p>
                 </div>
                 <div class="service-card">
                     <h2>Standard Package - $750</h2>
-                    <p>Includes Basic + e-commerce or CMS integration.</p>
+                    <p>Includes Basic + e-commerce / online store, or CMS integration.</p>
                 </div>
                 <div class="service-card">
                     <h2>Premium Package - $1000</h2>
                     <p>Custom features, monthly maintenance included.</p>
+                </div>
+                <h2>Basic & Standard packages include 1 month of maintenance</h2>
+            </div>
+            <div class="service-options">
+                <h2>Website Maintenance</h2>
+                <div class="service-card">
+                    <h2>Basic Maintenance - $250</h2>
+                    <p>Content updates, backups, and uptime monitoring. Keep your site fresh and secure.</p>
+                </div>
+                <div class="service-card">
+                    <h2>Standard Maintenance - $500</h2>
+                    <p>Includes Basic + SEO optimization, security patches, and a performance reports.</p>
+                </div>
+                <div class="service-card">
+                    <h2>Premium Maintenance - $750</h2>
+                    <p>Includes Standard + priority support, e-commerce updates, and custom feature enhancements.</p>
                 </div>
             </div>
             
@@ -44,9 +63,12 @@
                 <label for="package">Select Package:</label>
                 <select id="package" required>
                     <option value="">Choose a package</option>
-                    <option value="basic">Basic ($500)</option>
-                    <option value="standard">Standard ($750)</option>
-                    <option value="premium">Premium ($1000)</option>
+                    <option value="new-basic">Basic Website ($500)</option>
+                    <option value="new-standard">Standard Website ($750)</option>
+                    <option value="new-premium">Premium Website ($1000)</option>
+                    <option value="mtn-basic">Basic Maintenance ($200)</option>
+                    <option value="mtn-standard">Standard Maintenance ($500)</option>
+                    <option value="mtn-premium">Premium Maintenance ($750)</option>
                 </select>
                 <label for="details">Business Details:</label>
                 <textarea id="details" rows="4"></textarea>
