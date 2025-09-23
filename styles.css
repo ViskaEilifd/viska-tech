@@ -206,9 +206,13 @@ footer {
 .error {
     color: #d32f2f;
     font-size: 0.9rem;
-    display: block;
-    min-height: 1.2rem; /* Reserve space to prevent layout shift */
     margin-left: 1.0rem;
+    display: none;
+}
+
+.error:not(:empty) {
+    display: block; /* Show only when not empty */
+    min-height: 1.2rem; /* Prevent layout shift when error appears */
 }
 
 .has-error {
@@ -223,4 +227,14 @@ button:disabled {
 button:enabled {
     background: #3498db;
     cursor: pointer;
+}
+
+/* thanks.html styles */
+
+.thanks {
+    padding: 2rem;
+    text-align: center;
+}
+.thanks h1 {
+    margin-bottom: 1rem;
 }

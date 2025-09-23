@@ -1,20 +1,53 @@
 // Order Form (Services Page)
-document.getElementById('order-form')?.addEventListener('submit', function (e) {
+// Load Stripe.js
+const stripe = Stripe('pk_test_YourPublishableKey'); // Replace with your Stripe Publishable Key
+
+document.getElementById('order-form')?.addEventListener('submit', async function (e) {
     e.preventDefault();
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const package = document.getElementById('package').value;
     const details = document.getElementById('details').value;
-
+    
     // Basic validation
     if (!name || !email || !package) {
         document.getElementById('order-message').textContent = 'Please fill out all required fields.';
         return;
     }
 
-    // Dummy submission feedback
-    document.getElementById('order-message').textContent = `Thank you, ${name}! Your ${package} package order is received. We'll contact you at ${email}.`;
-    this.reset();
+    // Map package to price
+    const prices = {
+        basic: { price: 50000, name: 'Basic Website Package' }, // Cents
+        standard: { price: 75000, name: 'Standard Website Package' },
+        premium: { price: 100000, name: 'Premium Website Package' }
+    };
+
+    try {
+        // Call Netlify Function to create Checkout session
+        const response = await fetch('/.netlify/functions/create-checkout-session', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                package: prices[package],
+                email: email,
+                customerDetails: { name, details }
+            })
+        });
+
+        const session = await response.json();
+        if (session.error) {
+            document.getElementById('order-message').textContent = session.error;
+            return;
+        }
+
+        // Redirect to Stripe Checkout
+        const { error } = await stripe.redirectToCheckout({ sessionId: session.id });
+        if (error) {
+            document.getElementById('order-message').textContent = error.message;
+        }
+    } catch (err) {
+        document.getElementById('order-message').textContent = 'Error processing payment. Please try again.';
+    }
 });
 
 // Contact Form Validation

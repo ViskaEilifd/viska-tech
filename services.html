@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ViskaTech - Services</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
     <header>
@@ -72,7 +73,7 @@
                 </select>
                 <label for="details">Business Details:</label>
                 <textarea id="details" rows="4"></textarea>
-                <button type="submit">Submit Order</button>
+                <button type="submit" id="checkout-button" class="cta-button">Pay with Stripe</button>
             </form>
             <p id="order-message"></p>
         </section>
