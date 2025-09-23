@@ -1,0 +1,7 @@
+{
+    "name": "viska-tech",
+    "version": "1.0.0",
+    "dependencies": {
+        "stripe": "^16.12.0"
+    }
+}
