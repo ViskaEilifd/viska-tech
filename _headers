@@ -1,4 +1,5 @@
-# Apply to all pages (or /services.html for page-specific)
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://*.stripe.com; style-src 'self' 'unsafe-inline' https://js.stripe.com https://*.stripe.com; connect-src 'self' https://*.stripe.com wss://*.stripe.com; img-src 'self' data: https://*.stripe.com; font-src 'self' https://js.stripe.com https://*.stripe.com; frame-src https://checkout.stripe.com https://*.stripe.com;
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://*.stripe.com https://m.stripe.network; style-src 'self' 'unsafe-inline' https://js.stripe.com https://*.stripe.com https://m.stripe.network; connect-src 'self' https://*.stripe.com https://m.stripe.network wss://*.stripe.com; img-src 'self' data: https://*.stripe.com https://m.stripe.network; font-src 'self' https://js.stripe.com https://*.stripe.com https://m.stripe.network; frame-src https://checkout.stripe.com https://*.stripe.com https://m.stripe.network; object-src 'none'; base-uri 'self'; form-action 'self';
   X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
