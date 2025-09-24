@@ -1,6 +1,6 @@
 // Order Form (Services Page)
 // Load Stripe.js
-const stripe = Stripe('pk_test_YourPublishableKey'); // Replace with your Stripe Publishable Key
+const stripe = Stripe('pk_test_51SAYIk3gxBNCNtyBRShlqKt8EhEyoxKnrcZsQaZDklDowvqfydu1KVD8aoDefAfoByILqHkAZpbPzzP4oT6nyPct00jBpWoxjr');
 
 document.getElementById('order-form')?.addEventListener('submit', async function (e) {
     e.preventDefault();
