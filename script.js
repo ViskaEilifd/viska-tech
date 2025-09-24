@@ -148,7 +148,7 @@ if (document.getElementById('contact-form')) {
 // Order Form and Stripe (runs only on services.html)
 if (document.getElementById('order-form')) {
     // Load Stripe.js (safe here since SDK script is in services.html head)
-    const stripe = Stripe('pk_test_YourPublishableKey'); // Replace with your Stripe Publishable Key
+    const stripe = Stripe('pk_test_51SAYIk3gxBNCNtyBRShlqKt8EhEyoxKnrcZsQaZDklDowvqfydu1KVD8aoDefAfoByILqHkAZpbPzzP4oT6nyPct00jBpWoxjr'); // Replace with your Stripe Publishable Key
 
     document.getElementById('order-form')?.addEventListener('submit', async function (e) {
         e.preventDefault();
