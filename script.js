@@ -147,36 +147,41 @@ if (document.getElementById('contact-form')) {
 
 // Order Form and Stripe (runs only on services.html)
 if (document.getElementById('order-form')) {
-    // Load Stripe.js (safe here since SDK script is in services.html head)
-    const stripe = Stripe('pk_test_51SAYIk3gxBNCNtyBRShlqKt8EhEyoxKnrcZsQaZDklDowvqfydu1KVD8aoDefAfoByILqHkAZpbPzzP4oT6nyPct00jBpWoxjr'); // Replace with your Stripe Publishable Key
+    const stripe = Stripe('pk_test_51SAYIk3gxBNCNtyBRShlqKt8EhEyoxKnrcZsQaZDklDowvqfydu1KVD8aoDefAfoByILqHkAZpbPzzP4oT6nyPct00jBpWoxjr');
 
     document.getElementById('order-form')?.addEventListener('submit', async function (e) {
         e.preventDefault();
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
-        const package = document.getElementById('package').value;
+        const selectedPackage = document.getElementById('package').value;
         const details = document.getElementById('details').value;
 
-        // Basic validation
-        if (!name || !email || !package) {
+        // Validate inputs
+        if (!name || !email || !selectedPackage) {
             document.getElementById('order-message').textContent = 'Please fill out all required fields.';
             return;
         }
 
         // Map package to price
         const prices = {
-            basic: { price: 50000, name: 'Basic Website Package' }, // Cents
+            basic: { price: 50000, name: 'Basic Website Package' },
             standard: { price: 75000, name: 'Standard Website Package' },
             premium: { price: 100000, name: 'Premium Website Package' }
         };
 
+        const packageData = prices[selectedPackage];
+        if (!packageData) {
+            document.getElementById('order-message').textContent = 'Invalid package selected.';
+            return;
+        }
+
         try {
-            // Call Netlify Function to create Checkout session
+            // Call Netlify Function with renamed key
             const response = await fetch('/.netlify/functions/create-checkout-session', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    package: prices[package],
+                    selectedPackage: packageData, // Renamed key to avoid confusion
                     email: email,
                     customerDetails: { name, details }
                 })
