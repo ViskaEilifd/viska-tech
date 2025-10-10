@@ -149,20 +149,106 @@ if (document.getElementById('contact-form')) {
 if (document.getElementById('order-form')) {
     const stripe = Stripe('pk_test_51SAYIk3gxBNCNtyBRShlqKt8EhEyoxKnrcZsQaZDklDowvqfydu1KVD8aoDefAfoByILqHkAZpbPzzP4oT6nyPct00jBpWoxjr');
 
-    document.getElementById('order-form')?.addEventListener('submit', async function (e) {
+    const orderForm = document.getElementById('order-form');
+    const submitButton = orderForm?.querySelector('button[type="submit"]');
+    const fields = [
+        {
+            id: 'name',
+            errorId: 'name-error',
+            touched: false,
+            validate: (value) => {
+                if (!value.trim()) return 'Name is required.';
+                if (value.length > 50) return 'Name must be 50 characters or less.';
+                return '';
+            }
+        },
+        {
+            id: 'email',
+            errorId: 'email-error',
+            touched: false,
+            validate: (value) => {
+                if (!value.trim()) return 'Email is required.';
+                const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                if (!emailRegex.test(value)) return 'Please enter a valid email address.';
+                if (value.length > 100) return 'Email must be 100 characters or less.';
+                return '';
+            }
+        },
+        {
+            id: 'package',
+            errorId: 'package-error',
+            touched: false,
+            validate: (value) => {
+                const prices = {
+                    basic: { price: 50000, name: 'Basic Website Package' },
+                    standard: { price: 75000, name: 'Standard Website Package' },
+                    premium: { price: 100000, name: 'Premium Website Package' }
+                };
+                console.log('Selected package:', value); // Debug
+                if (!value || !prices[value]) return 'Please select a valid package.';
+                return '';
+            }
+        }
+    ];
+
+    const validateField = (field) => {
+        const input = document.getElementById(field.id);
+        const error = field.touched ? field.validate(input.value) : '';
+        const errorElement = document.getElementById(field.errorId);
+        if (errorElement) {
+            errorElement.textContent = error;
+        }
+        if (error) {
+            input.classList.add('has-error');
+        } else {
+            input.classList.remove('has-error');
+        }
+        return error === '';
+    };
+
+    const updateFormValidity = () => {
+        const allValid = fields.every(field => !field.touched || validateField(field));
+        submitButton.disabled = !allValid;
+    };
+
+    fields.forEach(field => {
+        const input = document.getElementById(field.id);
+        input.addEventListener('focus', () => {
+            field.touched = true;
+        });
+        input.addEventListener('input', () => {
+            if (field.touched) {
+                validateField(field);
+                updateFormValidity();
+            }
+        });
+        input.addEventListener('blur', () => {
+            if (field.touched) {
+                validateField(field);
+                updateFormValidity();
+            }
+        });
+    });
+
+    orderForm?.addEventListener('submit', async function (e) {
         e.preventDefault();
+
+        fields.forEach(field => {
+            field.touched = true;
+            validateField(field);
+        });
+
+        const isValid = fields.every(field => validateField(field));
+        if (!isValid) {
+            document.getElementById('order-message').textContent = 'Please fix the errors above.';
+            return;
+        }
+
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const selectedPackage = document.getElementById('package').value;
         const details = document.getElementById('details').value;
 
-        // Validate inputs
-        if (!name || !email || !selectedPackage) {
-            document.getElementById('order-message').textContent = 'Please fill out all required fields.';
-            return;
-        }
-
-        // Map package to price
         const prices = {
             basic: { price: 50000, name: 'Basic Website Package' },
             standard: { price: 75000, name: 'Standard Website Package' },
@@ -176,12 +262,11 @@ if (document.getElementById('order-form')) {
         }
 
         try {
-            // Call Netlify Function with renamed key
             const response = await fetch('/.netlify/functions/create-checkout-session', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    selectedPackage: packageData, // Renamed key to avoid confusion
+                    selectedPackage: packageData,
                     email: email,
                     customerDetails: { name, details }
                 })
@@ -193,7 +278,6 @@ if (document.getElementById('order-form')) {
                 return;
             }
 
-            // Redirect to Stripe Checkout
             const { error } = await stripe.redirectToCheckout({ sessionId: session.id });
             if (error) {
                 document.getElementById('order-message').textContent = error.message;
@@ -202,4 +286,6 @@ if (document.getElementById('order-form')) {
             document.getElementById('order-message').textContent = 'Error processing payment. Please try again.';
         }
     });
+
+    submitButton.disabled = true;
 }

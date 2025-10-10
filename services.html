@@ -56,24 +56,29 @@
             </div>
             
             <form id="order-form">
-                <h2>Order Now</h2>
-                <label for="name">Name:</label>
-                <input type="text" id="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" required>
-                <label for="package">Select Package:</label>
-                <select id="package" required>
-                    <option value="">Choose a package</option>
-                    <option value="new-basic">Basic Website ($500)</option>
-                    <option value="new-standard">Standard Website ($750)</option>
-                    <option value="new-premium">Premium Website ($1000)</option>
-                    <option value="mtn-basic">Basic Maintenance ($200)</option>
-                    <option value="mtn-standard">Standard Maintenance ($500)</option>
-                    <option value="mtn-premium">Premium Maintenance ($750)</option>
-                </select>
-                <label for="details">Business Details:</label>
-                <textarea id="details" rows="4"></textarea>
-                <button type="submit" id="checkout-button" class="cta-button">Pay with Stripe</button>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="package">Package:</label>
+                    <select id="package" name="package" required>
+                        <option value="" disabled selected>Select a package</option>
+                        <option value="basic">Basic Website Package ($500)</option>
+                        <option value="standard">Standard Website Package ($750)</option>
+                        <option value="premium">Premium Website Package ($1000)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="details">Details:</label>
+                    <textarea id="details" name="details" rows="4"></textarea>
+                </div>
+                <button type="submit">Pay with Stripe</button>
+                <p id="order-message"></p>
             </form>
             <p id="order-message"></p>
         </section>
