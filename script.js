@@ -147,7 +147,7 @@ if (document.getElementById('contact-form')) {
 
 // Order Form and Stripe (runs only on services.html)
 if (document.getElementById('order-form')) {
-    const stripe = Stripe('pk_test_51SAYIk3gxBNCNtyBRShlqKt8EhEyoxKnrcZsQaZDklDowvqfydu1KVD8aoDefAfoByILqHkAZpbPzzP4oT6nyPct00jBpWoxjr');
+    const stripe = Stripe('pk_live_51SAYIB3QVEDyGnrHmz0LObAHrwGiqKTW83OxmlSxAmhPYTcI3MCDAkfwTXo03fuBGISErEFhP18X589sglQRq5kC00Lodmwnb5');
 
     const orderForm = document.getElementById('order-form');
     const submitButton = orderForm?.querySelector('button[type="submit"]');

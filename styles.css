@@ -5,11 +5,15 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #CCCCCC;
-    background-color: #0000;
+    background-color: black;
 }
 
 /* Navigation */
@@ -234,6 +238,7 @@ button:enabled {
 .thanks {
     padding: 2rem;
     text-align: center;
+    background-color: #000000;
 }
 .thanks h1 {
     margin-bottom: 1rem;
