@@ -182,7 +182,10 @@ if (document.getElementById('order-form')) {
                 const prices = {
                     basic: { price: 50000, name: 'Basic Website Package' },
                     standard: { price: 75000, name: 'Standard Website Package' },
-                    premium: { price: 100000, name: 'Premium Website Package' }
+                    premium: { price: 100000, name: 'Premium Website Package' },
+                    mnt_basic: { price: 25000, name: 'Basic Website Maintenance' },
+                    mnt_standard: { price: 50000, name: 'Standard Website Maintenance' },
+                    mnt_premium: { price: 75000, name: 'Premium Website Maintenance' }
                 };
                 console.log('Selected package:', value); // Debug
                 if (!value || !prices[value]) return 'Please select a valid package.';
@@ -252,7 +255,10 @@ if (document.getElementById('order-form')) {
         const prices = {
             basic: { price: 50000, name: 'Basic Website Package' },
             standard: { price: 75000, name: 'Standard Website Package' },
-            premium: { price: 100000, name: 'Premium Website Package' }
+            premium: { price: 100000, name: 'Premium Website Package' },
+            mnt_basic: { price: 25000, name: 'Basic Website Maintenance' },
+            mnt_standard: { price: 50000, name: 'Standard Website Maintenance' },
+            mnt_premium: { price: 75000, name: 'Premium Website Maintenance' }
         };
 
         const packageData = prices[selectedPackage];
