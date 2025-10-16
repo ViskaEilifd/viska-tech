@@ -5,27 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ViskaTech - Home</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">ViskaTech Solutions</div>
-            <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="hero">
-            <h1>Welcome to Your Online Success</h1>
-            <p>Affordable, custom websites for small businesses. Get online in days!</p>
-            <a href="services.html" class="cta-button">Explore Services</a>
-        </section>
-    </main>
+    <nav aria-label="Main navigation">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+        </ul>
+    </nav>
+    <section class="hero" aria-label="Welcome section">
+        <h1>Welcome to ViskaTech</h1>
+        <p>Transform your business with custom, high-quality websites built for success.</p>
+        <button onclick="window.location.href='services.html'">Get Started</button>
+    </section>
+    <section class="intro">
+        <h2>Why Choose Us?</h2>
+        <div class="card">
+            <h3>Custom Solutions</h3>
+            <p>Tailored websites to fit your brand and goals.</p>
+        </div>
+        <div class="card">
+            <h3>Fast Delivery</h3>
+            <p>Launch your site quickly without sacrificing quality.</p>
+        </div>
+        <div class="card">
+            <h3>Affordable Pricing</h3>
+            <p>Competitive packages starting at $500.</p>
+        </div>
+    </section>
     <footer>
-        <p>&copy; 2025 ViskaTech</p>
+        <p>&copy; 2025 ViskaTech. All rights reserved.</p>
     </footer>
     <script src="script.js"></script>
 </body>

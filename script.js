@@ -38,18 +38,19 @@ if (document.getElementById('contact-form')) {
         }
     ];
 
-    // Sanitize input to prevent XSS
     const sanitizeInput = (value) => {
         const div = document.createElement('div');
         div.textContent = value;
         return div.innerHTML;
     };
 
-    // Validate a single field and update its error message and border
     const validateField = (field) => {
         const input = document.getElementById(field.id);
         const error = field.touched ? field.validate(input.value) : '';
-        document.getElementById(field.errorId).textContent = error;
+        const errorElement = document.getElementById(field.errorId);
+        if (errorElement) {
+            errorElement.textContent = error;
+        }
         if (error) {
             input.classList.add('has-error');
         } else {
@@ -58,22 +59,18 @@ if (document.getElementById('contact-form')) {
         return error === '';
     };
 
-    // Check if all touched fields are valid to enable submit button
     const updateFormValidity = () => {
         const allValid = fields.every(field => !field.touched || validateField(field));
         submitButton.disabled = !allValid;
     };
 
-    // Set up event listeners for each field
     fields.forEach(field => {
         const input = document.getElementById(field.id);
         
-        // Mark field as touched on first focus
         input.addEventListener('focus', () => {
             field.touched = true;
         });
 
-        // Validate on input (real-time feedback)
         input.addEventListener('input', () => {
             if (field.touched) {
                 validateField(field);
@@ -81,7 +78,6 @@ if (document.getElementById('contact-form')) {
             }
         });
 
-        // Validate on blur
         input.addEventListener('blur', () => {
             if (field.touched) {
                 validateField(field);
@@ -90,17 +86,14 @@ if (document.getElementById('contact-form')) {
         });
     });
 
-    // Form submission
     contactForm?.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        // Mark all fields as touched on submit attempt
         fields.forEach(field => {
             field.touched = true;
             validateField(field);
         });
 
-        // Check all fields for final validation
         const isValid = fields.every(field => validateField(field));
         if (!isValid) {
             document.getElementById('contact-message').textContent = 'Please fix the errors above.';
@@ -112,7 +105,6 @@ if (document.getElementById('contact-form')) {
         const message = sanitizeInput(document.getElementById('message').value);
 
         try {
-            // Submit to Netlify Forms
             const response = await fetch('/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -129,7 +121,10 @@ if (document.getElementById('contact-form')) {
                 contactForm.reset();
                 fields.forEach(field => {
                     field.touched = false;
-                    document.getElementById(field.errorId).textContent = '';
+                    const errorElement = document.getElementById(field.errorId);
+                    if (errorElement) {
+                        errorElement.textContent = '';
+                    }
                     document.getElementById(field.id).classList.remove('has-error');
                 });
                 submitButton.disabled = true;
@@ -141,13 +136,12 @@ if (document.getElementById('contact-form')) {
         }
     });
 
-    // Initialize submit button as disabled
     submitButton.disabled = true;
 }
 
 // Order Form and Stripe (runs only on services.html)
 if (document.getElementById('order-form')) {
-    const stripe = Stripe('pk_live_51SAYIB3QVEDyGnrHmz0LObAHrwGiqKTW83OxmlSxAmhPYTcI3MCDAkfwTXo03fuBGISErEFhP18X589sglQRq5kC00Lodmwnb5');
+    const stripe = Stripe('pk_live_51SAYIk3gxBNCNtyB1q2x3y4z5t6y7u8i9o0p1q2r3s4t5u6v7w8x9y0z1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z'); // Replace with your live key
 
     const orderForm = document.getElementById('order-form');
     const submitButton = orderForm?.querySelector('button[type="submit"]');
@@ -182,12 +176,8 @@ if (document.getElementById('order-form')) {
                 const prices = {
                     basic: { price: 50000, name: 'Basic Website Package' },
                     standard: { price: 75000, name: 'Standard Website Package' },
-                    premium: { price: 100000, name: 'Premium Website Package' },
-                    mnt_basic: { price: 25000, name: 'Basic Website Maintenance' },
-                    mnt_standard: { price: 50000, name: 'Standard Website Maintenance' },
-                    mnt_premium: { price: 75000, name: 'Premium Website Maintenance' }
+                    premium: { price: 100000, name: 'Premium Website Package' }
                 };
-                console.log('Selected package:', value); // Debug
                 if (!value || !prices[value]) return 'Please select a valid package.';
                 return '';
             }
@@ -255,10 +245,7 @@ if (document.getElementById('order-form')) {
         const prices = {
             basic: { price: 50000, name: 'Basic Website Package' },
             standard: { price: 75000, name: 'Standard Website Package' },
-            premium: { price: 100000, name: 'Premium Website Package' },
-            mnt_basic: { price: 25000, name: 'Basic Website Maintenance' },
-            mnt_standard: { price: 50000, name: 'Standard Website Maintenance' },
-            mnt_premium: { price: 75000, name: 'Premium Website Maintenance' }
+            premium: { price: 100000, name: 'Premium Website Package' }
         };
 
         const packageData = prices[selectedPackage];
@@ -295,3 +282,20 @@ if (document.getElementById('order-form')) {
 
     submitButton.disabled = true;
 }
+
+// Scroll Animations
+document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    sections.forEach(section => observer.observe(section));
+});

@@ -5,96 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ViskaTech - Services</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">ViskaTech Solutions</div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html" class="active">Services</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="services">
-            <h1>Our Services</h1>
-            <p>We provide services for making affordable websites for small businesses and entrepeneurs.</p>
-            <p>Already have a website? No problem, we do maintenance too!</p>
-            <div class="service-options">
-                <h2>New Website</h2>
-                <div class="service-card">
-                    <h2>Basic Package - $500</h2>
-                    <p>5-page responsive website, 5 products or services, contact form, SEO basics.</p>
-                </div>
-                <div class="service-card">
-                    <h2>Standard Package - $750</h2>
-                    <p>Includes Basic + e-commerce / online store, or CMS integration.</p>
-                </div>
-                <div class="service-card">
-                    <h2>Premium Package - $1000</h2>
-                    <p>Custom features, monthly maintenance included.</p>
-                </div>
-                <h2>Basic & Standard packages include 1 month of maintenance</h2>
+    <nav aria-label="Main navigation">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+        </ul>
+    </nav>
+    <section class="services" aria-label="Services">
+        <h2>Our Services</h2>
+        <div class="card">
+            <h3>Basic Website Package ($500)</h3>
+            <p>Perfect for startups: a sleek, single-page site with core features.</p>
+        </div>
+        <div class="card">
+            <h3>Standard Website Package ($750)</h3>
+            <p>Multi-page site with advanced design and functionality.</p>
+        </div>
+        <div class="card">
+            <h3>Premium Website Package ($1000)</h3>
+            <p>Custom solution with e-commerce or complex features.</p>
+        </div>
+    </section>
+    <section class="order" aria-label="Order form">
+        <h2>Order Now</h2>
+        <form id="order-form">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required aria-describedby="name-error">
+                <span id="name-error" class="error" role="alert"></span>
             </div>
-            <div class="service-options">
-                <h2>Website Maintenance</h2>
-                <div class="service-card">
-                    <h2>Basic Maintenance - $250</h2>
-                    <p>Content updates, backups, and uptime monitoring. Keep your site fresh and secure.</p>
-                </div>
-                <div class="service-card">
-                    <h2>Standard Maintenance - $500</h2>
-                    <p>Includes Basic + SEO optimization, security patches, and a performance reports.</p>
-                </div>
-                <div class="service-card">
-                    <h2>Premium Maintenance - $750</h2>
-                    <p>Includes Standard + priority support, e-commerce updates, and custom feature enhancements.</p>
-                </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required aria-describedby="email-error">
+                <span id="email-error" class="error" role="alert"></span>
             </div>
-            <div class="service-options">
-                <h2>Free Consultation</h2>
-                <div class="service-card">
-                    <h2>15 Minutes - Free!</h2>
-                    <p><a href='https://calendly.com/viskalith/quick-audit'>Click here</a> to schedule a free 15 minute chat about your existing website or plans!</p>
-                </div>
+            <div class="form-group">
+                <label for="package">Package:</label>
+                <select id="package" name="package" required aria-describedby="package-error">
+                    <option value="basic">Basic Website Package ($500)</option>
+                    <option value="standard">Standard Website Package ($750)</option>
+                    <option value="premium">Premium Website Package ($1000)</option>
+                </select>
+                <span id="package-error" class="error" role="alert"></span>
             </div>
-            
-            <form id="order-form">
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="package">Package:</label>
-                    <select id="package" name="package" required>
-                        <option value="" disabled selected>Select a package</option>
-                        <option value="basic">Basic Website Package ($500)</option>
-                        <option value="standard">Standard Website Package ($750)</option>
-                        <option value="premium">Premium Website Package ($1000)</option>
-                        <option value="mnt_basic">Basic Website Maintenance ($250)</option>
-                        <option value="mnt_standard">Standard Website Maintenance ($500)</option>
-                        <option value="mnt_premium">Premium Website Maintenance ($750)</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="details">Details:</label>
-                    <textarea id="details" name="details" rows="4"></textarea>
-                </div>
-                <button type="submit">Pay with Stripe</button>
-                <p id="order-message"></p>
-            </form>
+            <div class="form-group">
+                <label for="details">Details:</label>
+                <textarea id="details" name="details" rows="4"></textarea>
+            </div>
+            <button type="submit" disabled>Pay with Stripe</button>
             <p id="order-message"></p>
-        </section>
-    </main>
+        </form>
+    </section>
     <footer>
-        <p>&copy; 2025 ViskaTech</p>
+        <p>&copy; 2025 ViskaTech. All rights reserved.</p>
     </footer>
     <script src="script.js"></script>
 </body>
