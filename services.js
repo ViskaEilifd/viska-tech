@@ -41,7 +41,7 @@ const packages = {
     },
     hosting: {
         name: 'Worry-Free Hosting & Maintenance',
-        price: '$10/month (billed annually – $120)',
+        price: '$10/month (billed annually - $120)',
         items: [
             'Lightning-fast, secure hosting',
             'Daily backups & weekly updates',
@@ -81,7 +81,7 @@ function renderModal(key) {
     const modal = document.getElementById('package-modal');
     const card = modal.querySelector('.modal-card');
 
-    card.querySelector('h2').textContent = `${pkg.name} – ${pkg.price}`;
+    card.querySelector('h2').textContent = `${pkg.name} - ${pkg.price}`;
     const ul = card.querySelector('ul');
     ul.innerHTML = '';
     pkg.items.forEach(i => {
