@@ -266,23 +266,19 @@ if (document.getElementById('order-form')) {
             const response = await fetch('/.netlify/functions/create-checkout-session', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    selectedPackage: packageData,
-                    email: email,
-                    customerDetails: { name, details }
-                })
+                body: JSON.stringify({ selectedPackage, email, customerDetails })
             });
 
-            const session = await response.json();
-            if (session.error) {
-                document.getElementById('order-message').textContent = session.error;
+            const { id } = await response.json(); // MUST get `id`
+
+            if (!id) {
+                console.error('No session ID returned');
                 return;
             }
 
-            const { error } = await stripe.redirectToCheckout({ sessionId: session.id });
-            if (error) {
-                document.getElementById('order-message').textContent = error.message;
-            }
+            const { error } = await stripe.redirectToCheckout({ sessionId: data.id });
+
+            if (error) console.error(error);
         } catch (err) {
             document.getElementById('order-message').textContent = 'Error processing payment. Please try again.';
         }
