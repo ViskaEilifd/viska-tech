@@ -229,6 +229,7 @@ if (document.getElementById('order-form')) {
 
     orderForm?.addEventListener('submit', async function (e) {
         e.preventDefault();
+        console.log('Form submitted'); // Log 1: Starts
 
         fields.forEach(field => {
             field.touched = true;
@@ -237,6 +238,7 @@ if (document.getElementById('order-form')) {
 
         const isValid = fields.every(field => validateField(field));
         if (!isValid) {
+            console.log('Validation failed');
             document.getElementById('order-message').textContent = 'Please fix the errors above.';
             return;
         }
@@ -246,40 +248,66 @@ if (document.getElementById('order-form')) {
         const selectedPackage = document.getElementById('package').value;
         const details = document.getElementById('details').value;
 
-        const prices = {
-            basic: { price: 50000, name: 'Basic' },
-            standard: { price: 120000, name: 'Standard' },
-            premium: { price: 250000, name: 'Premium' },
+        console.log('Form data:', { name, email, selectedPackage, details }); // Log 2: Data
 
-            'basic+hosting': { price: 50000 + 12000, name: 'Basic + Hosting' },
-            'standard+hosting': { price: 120000 + 12000, name: 'Standard + Hosting' },
-            'premium+hosting': { price: 250000 + 12000, name: 'Premium + Hosting' }
+        const prices = {
+            basic: { price: 500, name: 'Basic' }, //  Dollars for logging; function expects cents
+            standard: { price: 1200, name: 'Standard' },
+            premium: { price: 2500, name: 'Premium' },
+            'basic+hosting': { price: 620, name: 'Basic + Hosting' },
+            'standard+hosting': { price: 1320, name: 'Standard + Hosting' },
+            'premium+hosting': { price: 2620, name: 'Premium + Hosting' }
         };
 
         const packageData = prices[selectedPackage];
         if (!packageData) {
+            console.log('Invalid package:', selectedPackage);
             document.getElementById('order-message').textContent = 'Invalid package selected.';
             return;
         }
 
+        console.log('Package data:', packageData); // Log 3: Package
+
         try {
+            const payload = {
+                selectedPackage: { ...packageData, price: packageData.price * 100 }, // Convert to cents
+                email: email,
+                customerDetails: { name, details }
+            };
+            console.log('Payload for function:', payload); // Log 4: Payload
+
             const response = await fetch('/.netlify/functions/create-checkout-session', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ selectedPackage, email, customerDetails })
+                body: JSON.stringify(payload)
             });
 
-            const { id } = await response.json(); // MUST get `id`
+            console.log('Fetch response status:', response.status); // Log 5: Response
+            console.log('Fetch response ok:', response.ok);
 
-            if (!id) {
-                console.error('No session ID returned');
+            if (!response.ok) {
+                const errorText = await response.text();
+                console.log('Function error response:', errorText);
+                document.getElementById('order-message').textContent = `Server error: ${response.status}`;
                 return;
             }
 
-            const { error } = await stripe.redirectToCheckout({ sessionId: data.id });
+            const session = await response.json();
+            console.log('Session data:', session); // Log 6: Session
 
-            if (error) console.error(error);
+            if (session.error) {
+                console.log('Session error:', session.error);
+                document.getElementById('order-message').textContent = session.error;
+                return;
+            }
+
+            const { error } = await stripe.redirectToCheckout({ sessionId: session.id });
+            if (error) {
+                console.log('Stripe redirect error:', error);
+                document.getElementById('order-message').textContent = error.message;
+            }
         } catch (err) {
+            console.error('Catch error:', err); // Log 7: Catch
             document.getElementById('order-message').textContent = 'Error processing payment. Please try again.';
         }
     });
