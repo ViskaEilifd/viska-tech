@@ -174,9 +174,13 @@ if (document.getElementById('order-form')) {
             touched: false,
             validate: (value) => {
                 const prices = {
-                    basic: { price: 50000, name: 'Basic Website Package' },
-                    standard: { price: 75000, name: 'Standard Website Package' },
-                    premium: { price: 100000, name: 'Premium Website Package' }
+                    basic: { price: 50000, name: 'Basic' },
+                    standard: { price: 120000, name: 'Standard' },
+                    premium: { price: 250000, name: 'Premium' },
+
+                    'basic+hosting': { price: 50000 + 12000, name: 'Basic + Hosting' },
+                    'standard+hosting': { price: 120000 + 12000, name: 'Standard + Hosting' },
+                    'premium+hosting': { price: 250000 + 12000, name: 'Premium + Hosting' }
                 };
                 if (!value || !prices[value]) return 'Please select a valid package.';
                 return '';
@@ -243,9 +247,13 @@ if (document.getElementById('order-form')) {
         const details = document.getElementById('details').value;
 
         const prices = {
-            basic: { price: 50000, name: 'Basic Website Package' },
-            standard: { price: 75000, name: 'Standard Website Package' },
-            premium: { price: 100000, name: 'Premium Website Package' }
+            basic: { price: 50000, name: 'Basic' },
+            standard: { price: 120000, name: 'Standard' },
+            premium: { price: 250000, name: 'Premium' },
+
+            'basic+hosting': { price: 50000 + 12000, name: 'Basic + Hosting' },
+            'standard+hosting': { price: 120000 + 12000, name: 'Standard + Hosting' },
+            'premium+hosting': { price: 250000 + 12000, name: 'Premium + Hosting' }
         };
 
         const packageData = prices[selectedPackage];
