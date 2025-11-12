@@ -19,7 +19,8 @@
       style-src 'self' 'unsafe-inline' 'unsafe-hashes' 
         'sha256-GsQC5AaXpdCaKTyWbxBzn7nitfp0Otwn7I/zu0rUKOs=' 
         'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 
-        https://js.stripe.com https://*.stripe.com https://m.stripe.network;
+        https://js.stripe.com https://*.stripe.com https://m.stripe.network
+        https://fonts.googleapis.com;
       connect-src 'self' https://*.stripe.com https://m.stripe.network wss://*.stripe.com;
       img-src 'self' data: https://*.stripe.com https://m.stripe.network;
       font-src 'self' https://fonts.gstatic.com https://js.stripe.com https://*.stripe.com https://m.stripe.network;
