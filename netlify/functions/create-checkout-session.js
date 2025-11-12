@@ -1,3 +1,6 @@
+console.log('STRIPE_SECRET_KEY exists:', !!process.env.STRIPE_SECRET_KEY);
+console.log('First 10 chars:', process.env.STRIPE_SECRET_KEY?.substring(0, 10));
+
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 exports.handler = async (event) => {
