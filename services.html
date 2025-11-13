@@ -12,11 +12,10 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
     <nav aria-label="Main navigation">
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="about.html">About &amp; Contact</a></li>
             <li><a href="services.html">Services</a></li>
         </ul>
     </nav>
@@ -26,7 +25,8 @@
         <!-- ==================== Core Features ==================== -->
         <section class="features-accordion" aria-label="Core Features">
             <h2>Core Features</h2>
-
+            <h3>*Click a feature for more details!</h3>
+            <br />
             <!-- 1. Responsive Design -->
             <div class="feature">
                 <h3>
@@ -185,6 +185,7 @@
         <!-- ==================== Packages ==================== -->
         <section class="packages" aria-label="Website Packages">
             <h2>Website Packages</h2>
+            <h3>*Click a package for more details!</h3>
             <div class="package-card" data-pkg="basic"><h3>Basic</h3><p class="price">$500</p></div>
             <div class="package-card" data-pkg="standard"><h3>Standard</h3><p class="price">$1,200</p></div>
             <div class="package-card" data-pkg="premium"><h3>Premium</h3><p class="price">$2,500</p></div>
@@ -204,8 +205,8 @@
                 <p class="consult-hook">
                     Let’s talk about your project. No pressure, no cost — just clarity on how we can help you grow.
                 </p>
-
-                <div class="consult-container">
+                
+                <div class="consult-container" id="consult-container">
                     <a href="https://calendly.com/viska-tech/viska-tech-consultation"
                        target="_blank"
                        class="btn-primary consult-btn">
@@ -219,5 +220,7 @@
     <footer>
         <p>© 2025 ViskaTech. All rights reserved.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
