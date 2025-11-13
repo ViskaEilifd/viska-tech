@@ -8,12 +8,8 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
 
-    <!-- Stripe -->
-    <script src="https://js.stripe.com/v3/"></script>
-
     <!-- External CSS -->
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="services.css">
 </head>
 <body>
 
@@ -201,53 +197,27 @@
             </div>
         </section>
 
-        <!-- ==================== Order Form ==================== -->
-        <section class="order" aria-label="Order form">
-            <h2>Order Now</h2>
-            <form id="order-form">
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" required aria-describedby="name-error">
-                    <span id="name-error" class="error" role="alert"></span>
-                </div>
+        <!-- ==================== Calendly Link ==================== -->
+        <section class="services-section">
+            <div class="container">
+                <h2>Get Started with a Free 15-Minute Consultation</h2>
+                <p class="consult-hook">
+                    Let’s talk about your project. No pressure, no cost — just clarity on how we can help you grow.
+                </p>
 
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" required aria-describedby="email-error">
-                    <span id="email-error" class="error" role="alert"></span>
+                <div class="consult-container">
+                    <a href="https://calendly.com/viska-tech/viska-tech-consultation"
+                       target="_blank"
+                       class="btn-primary consult-btn">
+                        Schedule Free Consultation
+                    </a>
                 </div>
-
-                <div class="form-group">
-                    <label for="package">Package:</label>
-                    <select id="package" required aria-describedby="package-error">
-                        <option value="" disabled selected>Select a package</option>
-                        <option value="basic">Basic – $500</option>
-                        <option value="standard">Standard – $1,200</option>
-                        <option value="premium">Premium – $2,500</option>
-                        <option value="basic+hosting">Basic + Hosting – $620</option>
-                        <option value="standard+hosting">Standard + Hosting – $1,320</option>
-                        <option value="premium+hosting">Premium + Hosting – $2,620</option>
-                    </select>
-                    <span id="package-error" class="error" role="alert"></span>
-                </div>
-
-                <div class="form-group">
-                    <label for="details">Additional Details (optional):</label>
-                    <textarea id="details" rows="4"></textarea>
-                </div>
-
-                <button type="submit" disabled>Pay with Stripe</button>
-                <p id="order-message"></p>
-            </form>
+            </div>
         </section>
-
     </main>
 
     <footer>
         <p>© 2025 ViskaTech. All rights reserved.</p>
     </footer>
-
-    <script src="script.js"></script>
-    <script src="services.js"></script>
 </body>
 </html>
