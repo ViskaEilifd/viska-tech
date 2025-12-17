@@ -1,6 +1,6 @@
-/Private/
-/.vs/
-/netlify/
+netlify/
+.vs/
 services.css
 services.js
 test.html
+thanks.html
