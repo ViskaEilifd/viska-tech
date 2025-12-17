@@ -1,226 +1,353 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ViskaTech – Services</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ViskaTech – Services</title>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
 
-    <!-- External CSS -->
-    <link rel="stylesheet" href="styles.css">
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav aria-label="Main navigation">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About &amp; Contact</a></li>
-            <li><a href="services.html">Services</a></li>
-        </ul>
-    </nav>
+  <nav aria-label="Main navigation" id="nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <span class="nav-toggle-icon"></span>
+    </div>
+    <ul id="nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About &amp; Contact</a></li>
+      <li><a href="services.html">Services</a></li>
+    </ul>
+  </nav>
 
-    <main class="container">
+  <main class="container">
 
-        <!-- ==================== Core Features ==================== -->
-        <section class="features-accordion" aria-label="Core Features">
-            <h2>Core Features</h2>
-            <h3>*Click a feature for more details!</h3>
-            <br />
-            <!-- 1. Responsive Design -->
-            <div class="feature">
-                <h3>
-                    Responsive Design
-                    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6" /></svg>
-                </h3>
-                <div class="desc">
-                    Your site automatically adapts to any screen size—desktops, tablets, or phones—ensuring a seamless experience that keeps visitors engaged and reduces bounce rates.
-                </div>
-            </div>
+    <!-- ==================== Core Features ==================== -->
+    <h1>Core Features</h1>
+    <section class="features-accordion" aria-label="Core Features">
 
-            <!-- 2. Loading Speed Optimization -->
-            <div class="feature">
-                <h3>
-                    Loading Speed Optimization
-                    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6" /></svg>
-                </h3>
-                <div class="desc">
-                    We fine-tune images, code, and hosting to make pages load in under 3 seconds, boosting user satisfaction and search engine rankings.
-                </div>
-            </div>
 
-            <!-- 3. CMS for Easy Content Updates -->
-            <div class="feature">
-                <h3>
-                    CMS for Easy Content Updates
-                    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6" /></svg>
-                </h3>
-                <div class="desc">
-                    Powered by user-friendly platforms like WordPress, so you can add, edit, or delete content (text, images, posts) without needing a developer—ever.
-                </div>
-            </div>
+      <!-- 1. Responsive Design -->
+      <div class="feature">
+        <div class="ftop">
+          <div class="ftopleft">
+            <h3>Responsive Design</h3>
+          </div>
+          <div class="ftopright">
+            <image class="svg-img" src="./assets/devices.svg" />
+          </div>
+        </div>
+        <div class="fbot">
+          <p>
+            Your site automatically adapts to any screen size—desktops, tablets, or phones—ensuring a seamless experience that keeps visitors engaged and reduces bounce rates.
+          </p>
+        </div>
+      </div>
 
-            <!-- 4. Secure Online Payment Methods -->
-            <div class="feature">
-                <h3>
-                    Secure Online Payment Methods
-                    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6" /></svg>
-                </h3>
-                <div class="desc">
-                    Integrated gateways like Stripe or PayPal handle transactions with bank-level encryption, PCI compliance, and fraud protection, so you can sell confidently.
-                </div>
-            </div>
+      <!-- 2. Loading Speed Optimization -->
+      <div class="feature">
+        <div class="ftop">
+          <div class="ftopleft">
+            <h3>Loading Speed Optimization</h3>
+          </div>
+          <div class="ftopright">
+            <image class="svg-img" src="./assets/speed.svg" />
+          </div>
+        </div>
+        <div class="fbot">
+          <p>
+            We fine-tune images, code, and hosting to make pages load in under 3 seconds, boosting user satisfaction and search engine rankings.
+          </p>
+        </div>
+      </div>
 
-            <!-- 5. SEO Basics -->
-            <div class="feature">
-                <h3>
-                    SEO Basics
-                    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6" /></svg>
-                </h3>
-                <div class="desc">
-                    Essential on-page tweaks like keyword optimization, meta tags, and fast-loading pages to help your site rank higher on Google and attract local customers organically.
-                </div>
-            </div>
+      <!-- 3. CMS for Easy Content Updates -->
+      <div class="feature">
+        <div class="ftop">
+          <div class="ftopleft">
+            <h3>CMS for Easy Content Updates</h3>
+          </div>
+          <div class="ftopright">
+            <image class="svg-img" src="./assets/CMS.svg" />
+          </div>
+        </div>
+        <div class="fbot">
+          <p>
+            Powered by user-friendly platforms like WordPress, so you can add, edit, or delete content (text, images, posts) without needing a developer—ever.
+          </p>
+        </div>
+      </div>
 
-            <!-- 6. Social Media Share Buttons -->
-            <div class="feature">
-                <h3>
-                    Social Media Share Buttons
-                    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6" /></svg>
-                </h3>
-                <div class="desc">
-                    One-click sharing for blog posts, products, or pages across platforms like Facebook, Instagram, and LinkedIn, amplifying your reach without extra effort.
-                </div>
-            </div>
+      <!-- 4. Secure Online Payment Methods -->
+      <div class="feature">
+        <div class="ftop">
+          <div class="ftopleft">
+            <h3>Secure Online Payment Methods</h3>
+          </div>
+          <div class="ftopright">
+            <image class="svg-img" src="./assets/payment.svg" />
+          </div>
+        </div>
+        <div class="fbot">
+          <p>
+            Integrated gateways like Stripe or PayPal handle transactions with bank-level encryption, PCI compliance, and fraud protection, so you can sell confidently.
+          </p>
+        </div>
+      </div>
 
-            <!-- 7. Blog -->
-            <div class="feature">
-                <h3>
-                    Blog
-                    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6" /></svg>
-                </h3>
-                <div class="desc">
-                    A dedicated section for sharing tips, updates, or stories to build trust, drive traffic, and improve SEO through fresh, searchable content.
-                </div>
-            </div>
+      <!-- 5. SEO Basics -->
+      <div class="feature">
+        <div class="ftop">
+          <div class="ftopleft">
+            <h3>SEO Basics</h3>
+          </div>
+          <div class="ftopright">
+            <image class="svg-img" src="./assets/SEO.svg" />
+          </div>
+        </div>
+        <div class="fbot">
+          <p>
+            Essential on-page tweaks like keyword optimization, meta tags, and fast-loading pages to help your site rank higher on Google and attract local customers organically.
+          </p>
+        </div>
+      </div>
 
-            <!-- 8. Basic E-Store -->
-            <div class="feature">
-                <h3>
-                    Basic E-Store
-                    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6" /></svg>
-                </h3>
-                <div class="desc">
-                    Simple product showcases with shopping carts, inventory tracking, and checkout—perfect for selling services, digital downloads, or a handful of physical items.
-                </div>
-            </div>
+      <!-- 6. Social Media Share Buttons -->
+      <div class="feature">
+        <div class="ftop">
+          <div class="ftopleft">
+            <h3>Social Media Share Buttons</h3>
+          </div>
+          <div class="ftopright">
+            <image class="svg-img" src="./assets/share.svg" />
+          </div>
+        </div>
+        <div class="fbot">
+          <p>
+            One-click sharing for blog posts, products, or pages across platforms like Facebook, Instagram, and LinkedIn, amplifying your reach without extra effort.
+          </p>
+        </div>
+      </div>
 
-            <!-- 9. Accessibility Standards -->
-            <div class="feature">
-                <h3>
-                    Accessibility Standards
-                    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6" /></svg>
-                </h3>
-                <div class="desc">
-                    Built to WCAG guidelines (e.g., alt text for images, keyboard navigation) so your site is usable by everyone, including those with disabilities, while avoiding legal pitfalls.
-                </div>
-            </div>
+      <!-- 7. Blog -->
+      <div class="feature">
+        <div class="ftop">
+          <div class="ftopleft">
+            <h3>Blog</h3>
+          </div>
+          <div class="ftopright">
+            <image class="svg-img" src="./assets/blog.svg" />
+          </div>
+        </div>
+        <div class="fbot">
+          <p>
+            A dedicated section for sharing tips, updates, or stories to build trust, drive traffic, and improve SEO through fresh, searchable content.
+          </p>
+        </div>
+      </div>
 
-            <!-- 10. Contact Form Integration -->
-            <div class="feature">
-                <h3>
-                    Contact Form Integration
-                    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6" /></svg>
-                </h3>
-                <div class="desc">
-                    A secure, spam-proof form for inquiries, bookings, or quotes—connects directly to email or tools like Google Forms for quick responses.
-                </div>
-            </div>
+      <!-- 8. Basic E-Store -->
+      <div class="feature">
+        <div class="ftop">
+          <div class="ftopleft">
+            <h3>Basic E-Store</h3>
+          </div>
+          <div class="ftopright">
+            <image class="svg-img" src="./assets/store.svg" />
+          </div>
+        </div>
+        <div class="fbot">
+          <p>
+            Simple product showcases with shopping carts, inventory tracking, and checkout—perfect for selling services, digital downloads, or a handful of physical items.
+          </p>
+        </div>
+      </div>
 
-            <!-- 11. Analytics Setup -->
-            <div class="feature">
-                <h3>
-                    Analytics Setup
-                    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6" /></svg>
-                </h3>
-                <div class="desc">
-                    Google Analytics integration to track visitors, popular pages, and conversions, giving you data-driven insights to grow your business.
-                </div>
-            </div>
+      <!-- 9. Accessibility Standards -->
+      <div class="feature">
+        <div class="ftop">
+          <div class="ftopleft">
+            <h3>Accessibility Standards</h3>
+          </div>
+          <div class="ftopright">
+            <image class="svg-img" src="./assets/accessible.svg" />
+          </div>
+        </div>
+        <div class="fbot">
+          <p>
+            Built to WCAG guidelines (e.g., alt text for images, keyboard navigation) so your site is usable by everyone, including those with disabilities, while avoiding legal pitfalls.
+          </p>
+        </div>
+      </div>
 
-            <!-- 12. SSL Certificate -->
-            <div class="feature">
-                <h3>
-                    SSL Certificate
-                    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6" /></svg>
-                </h3>
-                <div class="desc">
-                    Free or included HTTPS encryption for secure browsing, which Google favors and builds customer trust.
-                </div>
-            </div>
+      <!-- 10. Contact Form Integration -->
+      <div class="feature">
+        <div class="ftop">
+          <div class="ftopleft">
+            <h3>Contact Form Integration</h3>
+          </div>
+          <div class="ftopright">
+            <image class="svg-img" src="./assets/form.svg" />
+          </div>
+        </div>
+        <div class="fbot">
+          <p>
+            A secure, spam-proof form for inquiries, bookings, or quotes—connects directly to email or tools like Google Forms for quick responses.
+          </p>
+        </div>
+      </div>
 
-            <!-- 13. Email Newsletter Signup -->
-            <div class="feature">
-                <h3>
-                    Email Newsletter Signup
-                    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6" /></svg>
-                </h3>
-                <div class="desc">
-                    Simple opt-in forms linked to tools like Mailchimp, helping you capture leads and nurture repeat customers.
-                </div>
-            </div>
+      <!-- 11. Analytics Setup -->
+      <div class="feature">
+        <div class="ftop">
+          <div class="ftopleft">
+            <h3>Analytics Setup</h3>
+          </div>
+          <div class="ftopright">
+            <image class="svg-img" src="./assets/analytics.svg" />
+          </div>
+        </div>
+        <div class="fbot">
+          <p>
+            Google Analytics integration to track visitors, popular pages, and conversions, giving you data-driven insights to grow your business.
+          </p>
+        </div>
+      </div>
 
-            <!-- 14. Custom Icons/Graphics -->
-            <div class="feature">
-                <h3>
-                    Custom Icons/Graphics
-                    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6" /></svg>
-                </h3>
-                <div class="desc">
-                    Tailored visuals (e.g., logos, banners) using tools like Canva or free assets to make your brand pop without full custom design.
-                </div>
-            </div>
-        </section>
+      <!-- 12. SSL Certificate -->
+      <div class="feature">
+        <div class="ftop">
+          <div class="ftopleft">
+            <h3>SSL Certificate</h3>
+          </div>
+          <div class="ftopright">
+            <image class="svg-img" src="./assets/SSL.svg" />
+          </div>
+        </div>
+        <div class="fbot">
+          <p>
+            Free or included HTTPS encryption for secure browsing, which Google favors and builds customer trust.
+          </p>
+        </div>
+      </div>
 
-        <!-- ==================== Packages ==================== -->
-        <section class="packages" aria-label="Website Packages">
-            <h2>Website Packages</h2>
-            <h3>*Click a package for more details!</h3>
-            <div class="package-card" data-pkg="basic"><h3>Basic</h3><p class="price">$500</p></div>
-            <div class="package-card" data-pkg="standard"><h3>Standard</h3><p class="price">$1,200</p></div>
-            <div class="package-card" data-pkg="premium"><h3>Premium</h3><p class="price">$2,500</p></div>
-            <div class="optional-package">
-                <h2>Optional Add-On</h2>
-                <div class="package-card" data-pkg="hosting">
-                    <h3>Worry-Free Hosting &amp; Maintenance</h3>
-                    <p class="price">$10/month <small>(billed annually – $120)</small></p>
-                </div>
-            </div>
-        </section>
+      <!-- 13. Email Newsletter Signup -->
+      <div class="feature">
+        <div class="ftop">
+          <div class="ftopleft">
+            <h3>Email Newsletter Signup</h3>
+          </div>
+          <div class="ftopright">
+            <image class="svg-img" src="./assets/email.svg" />
+          </div>
+        </div>
+        <div class="fbot">
+          <p>
+            Simple opt-in forms linked to tools like Mailchimp, helping you capture leads and nurture repeat customers.
+          </p>
+        </div>
+      </div>
 
-        <!-- ==================== Calendly Link ==================== -->
-        <section class="services-section">
-            <div class="container">
-                <h2>Get Started with a Free 15-Minute Consultation</h2>
-                <p class="consult-hook">
-                    Let’s talk about your project. No pressure, no cost — just clarity on how we can help you grow.
-                </p>
-                
-                <div class="consult-container" id="consult-container">
-                    <a href="https://calendly.com/viska-tech/viska-tech-consultation"
-                       target="_blank"
-                       class="btn-primary consult-btn">
-                        Schedule Free Consultation
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
+      <!-- 14. Custom Icons/Graphics -->
+      <div class="feature">
+        <div class="ftop">
+          <div class="ftopleft">
+            <h3>Custom Icons/Graphics</h3>
+          </div>
+          <div class="ftopright">
+            <image class="svg-img" src="./assets/custom-graphics.svg" />
+          </div>
+        </div>
+        <div class="fbot">
+          <p>
+            Tailored visuals (e.g., logos, banners) using tools like Canva or free assets to make your brand pop without full custom design.
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- ==================== Packages ==================== -->
+    <h2 style="text-align: center">Website Packages</h2>
+    <section class="features-accordion" aria-label="Website Packages">
 
-    <footer>
-        <p>© 2025 ViskaTech. All rights reserved.</p>
-    </footer>
+      <div class="package-card" data-pkg="basic">
+        <p class="pname">Basic - <span class="price">$500</span></p>
+        <p>
+          <ul class="pdetails">
+            <li>All core features.</li>
+            <li>Up to 5 pages (Home, About/Contact, Services/Products, Blog).</li>
+            <li>1 round of revisions; 30-day support.</li>
+            <li>WordPress setup + basic training.</li>
+          </ul>
+        </p>
+      </div>
+      <div class="package-card" data-pkg="standard">
+        <p class="pname">Standard - <span class="price">$1,200</span></p>
+        <p class="pdetails">
+          <ul class="pdetails">
+            <li>Everything in Basic.</li>
+            <li>Up to 10 pages + 1 custom landing page.</li>
+            <li>Advanced SEO</li>
+            <li>Customized features & graphics.</li>
+            <li>2 rounds revisions; 90-day support + monthly check-in.</li>
+           </ul>
+        </p>
+      </div>
+      <div class="package-card" data-pkg="premium">
+        <p class="pname">Premium - <span class="price">$2,500</span></p>
+        <p class="pdetails">
+          <ul class="pdetails">
+            <li>Everything in Standard</li>
+            <li>Unlimited pages; full e-store (up to 50 products)</li>
+            <li>Custom integrations (booking calendar, advanced payments)</li>
+            <li>Performance audit + ongoing tweaks (3 months).</li>
+            <li>3 rounds revisions; 6-month support + quarterly updates.</li>
+          </ul>
+        </p>
+      </div>
 
-    <script src="script.js"></script>
+
+
+        <div class="package-card" data-pkg="hosting">
+          <h3 style="text-align: center;">Worry-Free Hosting &amp; Maintenance (Optional) - </h3>
+          <p class="price" style="text-align: center;">$10/month <small>(billed annually – $120)</small></p>
+          <p>
+            <ul class="pdetails">
+              <li>Lightning-fast, secure hosting</li>
+              <li>Daily backups & weekly updates</li>
+              <li>SSL certificate & malware protection</li>
+              <li>24/7 uptime monitoring</li>
+              <li>One point of contact for everything</li>
+            </ul>
+          </p>
+        </div>
+    </section>
+
+    <!-- ==================== Calendly Link ==================== -->
+    <section class="services-section">
+      <div class="container">
+        <h2 style="text-align: center">Get Started with a Free 15-Minute Consultation</h2>
+        <p class="consult-hook">
+          Let’s talk about your project. No pressure, no cost — just clarity on how we can help you grow.
+        </p>
+
+        <div class="consult-container" id="consult-container">
+          <a href="https://calendly.com/viska-tech/viska-tech-consultation"
+             target="_blank"
+             class="btn-primary consult-btn">
+            Schedule Free Consultation
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 ViskaTech. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

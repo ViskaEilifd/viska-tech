@@ -8,13 +8,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav aria-label="Main navigation">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About &amp; Contact</a></li>
-            <li><a href="services.html">Services</a></li>
-        </ul>
-    </nav>
+  <nav aria-label="Main navigation" id="nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <span class="nav-toggle-icon"></span>
+    </div>
+    <ul id="nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About &amp; Contact</a></li>
+      <li><a href="services.html">Services</a></li>
+    </ul>
+  </nav>
     <section class="contact" aria-label="Contact form">
         <h2>Contact Us</h2>
         <form id="contact-form" name="contact" method="POST" data-netlify="true">

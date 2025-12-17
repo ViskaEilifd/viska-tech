@@ -1,3 +1,11 @@
+// Responsive Nav Menu
+const navToggle = document.getElementById('nav-toggle');
+const navList = document.getElementById('nav-list');
+
+navToggle.addEventListener('click', function () {
+  navList.classList.toggle('active');
+});
+
 // Contact Form (runs only on about.html)
 if (document.getElementById('contact-form')) {
     const contactForm = document.getElementById('contact-form');
@@ -261,6 +269,7 @@ if (document.getElementById('consult-container')) {
 }
 
 // Scroll Animations (global)
+/*
 document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('section');
     const observer = new IntersectionObserver((entries) => {
@@ -276,3 +285,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     sections.forEach(section => observer.observe(section));
 });
+*/
